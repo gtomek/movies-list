@@ -1,7 +1,8 @@
-package uk.co.tomek.popularmovies
+package uk.co.tomek.popularmovies.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import uk.co.tomek.popularmovies.R
 
 class MainActivity : AppCompatActivity() {
 
