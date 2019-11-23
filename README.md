@@ -2,8 +2,12 @@
 
 Basic Android native application displaying a list of films from themoviedb API
 
-It uses https://developers.themoviedb.org/3/movies/get-popular-movies URL 
+- It uses https://developers.themoviedb.org/3/movies/get-popular-movies URL 
 to get the movies list
+
+- Movie item contains the poster image of each movie in the list, along with the title, voting average (displayed as a percentage) and release
+date.
+- The list is scrollable (there are about ~20k movies).
 
 To make it running just import it to Android Studio v3.5.2 or 
 use ./gradlew assemble command to assemble the apk and install it on a device
