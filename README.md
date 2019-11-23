@@ -1,3 +1,9 @@
-# movies-list
+# Popular movies list
 
-Basic Android native application displaying a list of films from themoviedb
+Basic Android native application displaying a list of films from themoviedb API
+
+It uses https://developers.themoviedb.org/3/movies/get-popular-movies URL 
+to get the movies list
+
+To make it running just import it to Android Studio v3.5.2 or 
+use ./gradlew assemble command to assemble the apk and install it on a device
