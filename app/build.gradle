@@ -23,6 +23,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -55,10 +60,10 @@ dependencies {
     debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.0-beta-4'
 
     // dependency injection
-    implementation "org.koin:koin-core:1.0.2"
-    implementation "org.koin:koin-core-ext:1.0.2"
-    implementation "org.koin:koin-android:1.0.2"
-    implementation "org.koin:koin-androidx-viewmodel:1.0.2"
+    implementation "org.koin:koin-core:2.0.1"
+    implementation "org.koin:koin-core-ext:2.0.1"
+    implementation "org.koin:koin-android:2.0.1"
+    implementation "org.koin:koin-androidx-viewmodel:2.0.1"
 
     // tests
     testImplementation 'junit:junit:4.12'
