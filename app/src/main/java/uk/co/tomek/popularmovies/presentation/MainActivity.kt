@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mainViewModel.mainLiveData.observe(this, Observer { viewState ->
+        mainViewModel.mainViewState.observe(this, Observer { viewState ->
             viewState?.let { renderState(it) }
         })
     }
