@@ -1,5 +1,7 @@
 package uk.co.tomek.popularmovies.di
 
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -62,7 +64,13 @@ inline fun <reified T> creteNetService(httpClient: OkHttpClient, baseUrl: String
     val retrofit = Retrofit.Builder()
         .baseUrl(baseUrl)
         .client(httpClient)
-        .addConverterFactory(MoshiConverterFactory.create())
+        .addConverterFactory(
+            MoshiConverterFactory.create(
+                Moshi.Builder()
+                    .add(KotlinJsonAdapterFactory())
+                    .build()
+            )
+        )
         .build()
     return retrofit.create(T::class.java)
 }
