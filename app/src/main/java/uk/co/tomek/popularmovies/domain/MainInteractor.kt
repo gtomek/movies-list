@@ -7,6 +7,7 @@ import uk.co.tomek.popularmovies.presentation.model.MainViewState
 
 /**
  * Main interactor implementation.
+ * TODO: Support of pagination.
  */
 class MainInteractor(
     private val repository: Repository<Page>,

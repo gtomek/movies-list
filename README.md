@@ -14,3 +14,7 @@ Please define Movied DB API v3 key as system variable e.g.
 
 To make it running just import it to Android Studio v3.5.2 or 
 use ./gradlew assemble command to assemble the apk and install it on a device
+
+TODO:
+- UI automation & integration tests
+- pagination support
