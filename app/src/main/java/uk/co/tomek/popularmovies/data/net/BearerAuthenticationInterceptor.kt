@@ -16,6 +16,7 @@ class BearerAuthenticationInterceptor : Interceptor {
         val newRequest: Request = chain.request().newBuilder()
             .addHeader("Authorization", "Bearer $token")
             .addHeader("Content-Type", "application/json;charset=utf-8")
+            .method(chain.request().method, chain.request().body)
             .build()
         return chain.proceed(newRequest)
     }

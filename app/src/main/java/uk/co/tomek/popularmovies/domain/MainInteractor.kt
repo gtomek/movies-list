@@ -1,5 +1,6 @@
 package uk.co.tomek.popularmovies.domain
 
+import uk.co.tomek.popularmovies.data.MoviesDbRepository
 import uk.co.tomek.popularmovies.data.Repository
 import uk.co.tomek.popularmovies.data.model.Page
 import uk.co.tomek.popularmovies.presentation.model.MainViewState

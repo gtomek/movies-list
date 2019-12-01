@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="uk.co.tomek.popularmovies">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".MoviesApp"
         android:allowBackup="true"

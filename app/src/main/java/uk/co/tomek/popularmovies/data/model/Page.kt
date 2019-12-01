@@ -10,3 +10,5 @@ data class Page(
     @Json(name = "total_results")
     val totalResults: Int
 )
+
+
