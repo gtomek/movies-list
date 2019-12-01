@@ -63,13 +63,13 @@ class MainInteractorTest {
             val testAverage2 = 0.0
             val movie1 = mock<Result> {
                 on { title } doReturn testTitle
-                on { backdropPath } doReturn testImageUrl
+                on { posterPath } doReturn testImageUrl
                 on { releaseDate } doReturn testReleaseDate
                 on { voteAverage } doReturn testAverage
             }
             val movie2 = mock<Result> {
                 on { title } doReturn testTitle2
-                on { backdropPath } doReturn testImageUrl2
+                on { posterPath } doReturn testImageUrl2
                 on { releaseDate } doReturn testReleaseDate2
                 on { voteAverage } doReturn testAverage2
             }

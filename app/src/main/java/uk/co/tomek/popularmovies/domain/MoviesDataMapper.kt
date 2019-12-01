@@ -16,7 +16,7 @@ class MoviesDataMapper {
 
     fun mapPageToViewData(page: Page): List<MovieModel> = page.results.map { result ->
         MovieModel(result.title,
-            result.backdropPath,
+            result.posterPath,
             "${(result.voteAverage * 10).toInt()}%",
             inputDateFormat.parse(result.releaseDate)?.let {
                 outputDateFormat.format(it)

@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
 import kotlinx.android.synthetic.main.item_movies_list.view.*
 import timber.log.Timber
+import uk.co.tomek.popularmovies.BuildConfig
 import uk.co.tomek.popularmovies.R
 import uk.co.tomek.popularmovies.presentation.model.MovieModel
 
@@ -32,7 +33,7 @@ class MoviesListAdapter (
         ) {
             Timber.v("Bind MovieItemViewHolder")
             with(itemView) {
-                imageview_poster.load(model.imageUrl)
+                imageview_poster.load(BuildConfig.IMAGE_SERVER_URL + model.imageUrl)
                 textview_title.text = model.title
                 textview_voting_average.text = model.votingAverage
                 textview_release_date.text = model.releaseDate

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:padding="@dimen/space_normal">
 
     <ImageView
@@ -11,15 +11,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:background="@color/colorPrimary"
+        tools:layout_height="500dp"
+        tools:layout_width="200dp" />
 
     <TextView
         android:id="@+id/textview_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageview_poster"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textview_voting_average"
         tools:text="The Tile" />
 
     <TextView
@@ -27,19 +29,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/textview_release_date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageview_poster"
-        app:layout_constraintTop_toBottomOf="@+id/textview_title"
+        app:layout_constraintStart_toStartOf="parent"
         tools:text="Average vote" />
 
     <TextView
         android:id="@+id/textview_release_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/imageview_poster"
-        app:layout_constraintTop_toBottomOf="@+id/textview_voting_average"
-
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/imageview_poster"
         tools:text="Release Date" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
