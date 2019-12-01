@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.Observer
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 import uk.co.tomek.popularmovies.R
 import uk.co.tomek.popularmovies.presentation.model.MainViewState
 import uk.co.tomek.popularmovies.presentation.viewmodel.MainViewModel
@@ -25,6 +26,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun renderState(viewState: MainViewState) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        Timber.v("Render state $viewState")
     }
 }

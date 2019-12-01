@@ -13,7 +13,11 @@ class MainInteractor(
 ) : Interactor<MainViewState> {
 
     override suspend fun fetchData(): MainViewState {
-        val page = repository.fetchData()
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return try {
+            val page = repository.fetchData()
+            MainViewState.Data(mapper.mapPageToViewData(page))
+        } catch (exception: Exception) {
+            MainViewState.Error(exception)
+        }
     }
 }
