@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Popular Movies</string>
+    <string name="content_desc_progress_bar">progress bar</string>
+    <string name="oops_something_went_wrong">Oops something went wrong…</string>
+    <string name="try_again">try again</string>
+    <string name="movie_clicked">Movie item clicked</string>
 </resources>

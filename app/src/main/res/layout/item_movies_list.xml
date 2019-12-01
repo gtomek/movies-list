@@ -30,7 +30,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageview_poster"
         app:layout_constraintTop_toBottomOf="@+id/textview_title"
-
         tools:text="Average vote" />
 
     <TextView
