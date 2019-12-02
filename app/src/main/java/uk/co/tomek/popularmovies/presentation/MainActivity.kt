@@ -66,7 +66,7 @@ class MainActivity : AppCompatActivity() {
                 progress_bar.visibility = View.GONE
                 layout_error_main.visibility = View.GONE
                 state.itemsResponse.let {
-                    moviesListAdapter.submitList(it)
+                    moviesListAdapter.updateList(it)
                 }
 
                 if (state.itemsResponse.isEmpty()) {

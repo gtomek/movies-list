@@ -3,6 +3,7 @@ package uk.co.tomek.popularmovies.presentation
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.api.load
@@ -24,6 +25,10 @@ class MoviesListAdapter(
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         (holder as MovieItemViewHolder).bind(getItem(position), clickListener)
+    }
+
+    fun updateList(newList: List<MovieModel>) {
+        submitList(currentList + newList)
     }
 
     class MovieItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {

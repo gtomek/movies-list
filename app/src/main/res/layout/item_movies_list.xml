@@ -30,6 +30,7 @@
             android:id="@+id/textview_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:ellipsize="end"
             android:lines="1"
             android:textColor="@color/white"
             tools:text="The Tile a bit long one to see if it fits in one very long line on that emulator" />
