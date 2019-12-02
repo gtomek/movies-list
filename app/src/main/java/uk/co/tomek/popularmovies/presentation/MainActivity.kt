@@ -32,9 +32,9 @@ class MainActivity : AppCompatActivity() {
         moviesListAdapter = MoviesListAdapter(::openDetails)
 
         recycler_items_list.apply {
-            layoutManager = GridLayoutManager(context, 2)
+            layoutManager =
+                GridLayoutManager(context, resources.getInteger(R.integer.movies_grid_span))
             adapter = moviesListAdapter
-            addItemDecoration(DividerItemDecoration(this@MainActivity, DividerItemDecoration.VERTICAL))
         }
 
         mainViewModel.mainViewState.observe(this, Observer { viewState ->

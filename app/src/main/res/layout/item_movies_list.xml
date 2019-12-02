@@ -12,32 +12,45 @@
         android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:background="@color/colorPrimary"
+        tools:background="@color/blue_200"
         tools:layout_height="500dp"
         tools:layout_width="200dp" />
 
-    <TextView
-        android:id="@+id/textview_title"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/textview_voting_average"
-        tools:text="The Tile" />
-
-    <TextView
-        android:id="@+id/textview_voting_average"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@+id/textview_release_date"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:text="Average vote" />
-
-    <TextView
-        android:id="@+id/textview_release_date"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/gradient_shape"
+        android:orientation="vertical"
+        android:padding="@dimen/space_normal"
         app:layout_constraintBottom_toBottomOf="@+id/imageview_poster"
-        tools:text="Release Date" />
+        app:layout_constraintEnd_toEndOf="@+id/imageview_poster"
+        app:layout_constraintStart_toStartOf="@+id/imageview_poster">
+
+        <TextView
+            android:id="@+id/textview_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:textColor="@color/white"
+            tools:text="The Tile a bit long one to see if it fits in one very long line on that emulator" />
+
+        <TextView
+            android:id="@+id/textview_voting_average"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:textColor="@color/white"
+            tools:text="Average vote" />
+
+        <TextView
+            android:id="@+id/textview_release_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lines="1"
+            android:textColor="@color/white"
+            tools:text="Release Date" />
+
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
