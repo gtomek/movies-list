@@ -47,7 +47,6 @@ class MoviesApp : Application() {
                 .detectLeakedSqlLiteObjects()
                 .detectLeakedClosableObjects()
                 .penaltyLog()
-                .penaltyDeath()
                 .build()
         )
     }

@@ -8,6 +8,7 @@ import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 import uk.co.tomek.popularmovies.domain.Interactor
 import uk.co.tomek.popularmovies.presentation.model.MainViewState
 
@@ -22,15 +23,26 @@ class MainViewModel(
     private val _mainViewState = MutableLiveData<MainViewState>()
     val mainViewState: LiveData<MainViewState>
         get() {
-            fetchMovies()
+            _mainViewState.value = MainViewState.Loading
+            fetchMovies(1)
             return _mainViewState
         }
 
-    private fun fetchMovies() {
-        _mainViewState.value = MainViewState.Loading
+    private fun fetchMovies(pageNumber: Int) {
         viewModelScope.launch {
             _mainViewState.value = withContext(dispatcher) {
-                return@withContext mainInteractor.fetchData()
+                return@withContext mainInteractor.fetchData(pageNumber)
+            }
+        }
+    }
+
+    fun onBottomReached() {
+        val lastState = _mainViewState.value
+        if (lastState is MainViewState.Data) {
+            val nextPage = lastState.lastPage + 1
+            Timber.v("Getting page $nextPage of ${lastState.totalPages}")
+            if (nextPage < lastState.totalPages) {
+                fetchMovies(nextPage)
             }
         }
     }

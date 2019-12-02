@@ -1,11 +1,8 @@
 package uk.co.tomek.popularmovies.presentation.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
-import androidx.lifecycle.Observer
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.verify
-import com.nhaarman.mockitokotlin2.verifyBlocking
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.TestCoroutineDispatcher
@@ -56,7 +53,7 @@ class MainViewModelTest {
             // given
             val throwable = Exception("An exception")
             val errorState = MainViewState.Error(throwable)
-            given(interactor.fetchData()).willReturn(errorState)
+            given(interactor.fetchData(1)).willReturn(errorState)
 
             // when
             //mainViewModel.mainViewState
@@ -70,8 +67,8 @@ class MainViewModelTest {
     fun verifyThatDataStateIsPropagated() {
         runBlockingTest {
             // given
-            val dataState = MainViewState.Data(mock())
-            given(interactor.fetchData()).willReturn(dataState)
+            val dataState = MainViewState.Data(mock(), lastPage = 1)
+            given(interactor.fetchData(1)).willReturn(dataState)
 
             // when
             //mainViewModel.mainViewState

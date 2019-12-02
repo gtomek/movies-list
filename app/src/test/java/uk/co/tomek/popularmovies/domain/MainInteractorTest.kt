@@ -1,9 +1,6 @@
 package uk.co.tomek.popularmovies.domain
 
-import com.nhaarman.mockitokotlin2.doReturn
-import com.nhaarman.mockitokotlin2.given
-import com.nhaarman.mockitokotlin2.mock
-import com.nhaarman.mockitokotlin2.whenever
+import com.nhaarman.mockitokotlin2.*
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.runBlockingTest
@@ -40,8 +37,8 @@ class MainInteractorTest {
         val expected = MainViewState.Error(expection)
 
         // when
-        runBlocking { whenever(repository.fetchData()) }.thenThrow(expection)
-        val result = runBlocking { interactor.fetchData() }
+        runBlocking { whenever(repository.fetchData(any())) }.thenThrow(expection)
+        val result = runBlocking { interactor.fetchData(1) }
 
         // then
         assertEquals(expected, result)
@@ -92,11 +89,11 @@ class MainInteractorTest {
                 "17 Dec 2019"
             )
             val expectedMovies = listOf(expectedMovieModel, expectedMovieModel2)
-            given(repository.fetchData()).willReturn(page)
-            val expectedState = MainViewState.Data(expectedMovies)
+            given(repository.fetchData(any())).willReturn(page)
+            val expectedState = MainViewState.Data(expectedMovies, lastPage = 1)
 
             // when
-            val result = interactor.fetchData()
+            val result = interactor.fetchData(1)
 
             // then
             assertEquals(expectedState, result)

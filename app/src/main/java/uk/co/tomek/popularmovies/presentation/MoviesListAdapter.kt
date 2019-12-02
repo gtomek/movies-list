@@ -12,12 +12,13 @@ import uk.co.tomek.popularmovies.BuildConfig
 import uk.co.tomek.popularmovies.R
 import uk.co.tomek.popularmovies.presentation.model.MovieModel
 
-class MoviesListAdapter (
+class MoviesListAdapter(
     private val clickListener: (MovieModel) -> Unit
-) :  ListAdapter<MovieModel, RecyclerView.ViewHolder>(MoviesDiffUtil()) {
+) : ListAdapter<MovieModel, RecyclerView.ViewHolder>(MoviesDiffUtil()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_movies_list, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_movies_list, parent, false)
         return MovieItemViewHolder(view)
     }
 
@@ -31,7 +32,7 @@ class MoviesListAdapter (
             model: MovieModel,
             clickListener: (MovieModel) -> Unit
         ) {
-            Timber.v("Bind MovieItemViewHolder")
+            Timber.v("Bind MovieItemViewHolder $model")
             with(itemView) {
                 imageview_poster.load(BuildConfig.IMAGE_SERVER_URL + model.imageUrl)
                 textview_title.text = model.title

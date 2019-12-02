@@ -4,6 +4,6 @@ import uk.co.tomek.popularmovies.data.model.Page
 import uk.co.tomek.popularmovies.data.net.MoviesDbNetworkService
 
 class MoviesDbRepository(private val networkSource: MoviesDbNetworkService) : Repository<Page> {
-    override suspend fun fetchData(): Page
-            = networkSource.getPopularMovies()
+    override suspend fun fetchData(pageNumber: Int): Page
+            = networkSource.getPopularMovies(pageNumber)
 }

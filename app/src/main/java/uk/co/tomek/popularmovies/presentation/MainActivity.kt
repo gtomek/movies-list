@@ -5,9 +5,8 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.Observer
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.layout_error.*
 import org.koin.androidx.viewmodel.ext.android.viewModel
@@ -35,6 +34,18 @@ class MainActivity : AppCompatActivity() {
             layoutManager =
                 GridLayoutManager(context, resources.getInteger(R.integer.movies_grid_span))
             adapter = moviesListAdapter
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
+                    val layoutManager = recyclerView.layoutManager as GridLayoutManager
+                    if (dy > 0) { // scrolling down
+                        val lastVisible = layoutManager.findLastCompletelyVisibleItemPosition()
+                        Timber.v("Scrolled down last $lastVisible of ${layoutManager.itemCount}")
+                        if (layoutManager.itemCount > 0 && lastVisible == layoutManager.itemCount - 1) {
+                            mainViewModel.onBottomReached()
+                        }
+                    }
+                }
+            })
         }
 
         mainViewModel.mainViewState.observe(this, Observer { viewState ->
