@@ -39,7 +39,6 @@ class MainActivity : AppCompatActivity() {
                     val layoutManager = recyclerView.layoutManager as GridLayoutManager
                     if (dy > 0) { // scrolling down
                         val lastVisible = layoutManager.findLastCompletelyVisibleItemPosition()
-                        Timber.v("Scrolled down last $lastVisible of ${layoutManager.itemCount}")
                         if (layoutManager.itemCount > 0 && lastVisible == layoutManager.itemCount - 1) {
                             mainViewModel.onBottomReached()
                         }
@@ -57,16 +56,21 @@ class MainActivity : AppCompatActivity() {
         Timber.v("Render view state $state")
         when (state) {
             is MainViewState.Loading -> {
-                recycler_items_list.visibility = View.GONE
-                layout_error_main.visibility = View.GONE
-                progress_bar.visibility = View.VISIBLE
+                if (moviesListAdapter.itemCount == 0) {
+                    recycler_items_list.visibility = View.GONE
+                    layout_error_main.visibility = View.GONE
+                    progress_bar.visibility = View.VISIBLE
+                } else {
+                    // TODO add loading item at the end of the list
+                }
+
             }
             is MainViewState.Data -> {
                 recycler_items_list.visibility = View.VISIBLE
                 progress_bar.visibility = View.GONE
                 layout_error_main.visibility = View.GONE
                 state.itemsResponse.let {
-                    moviesListAdapter.updateList(it)
+                    moviesListAdapter.submitList(it)
                 }
 
                 if (state.itemsResponse.isEmpty()) {

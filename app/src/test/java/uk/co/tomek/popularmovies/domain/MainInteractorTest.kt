@@ -90,7 +90,10 @@ class MainInteractorTest {
             )
             val expectedMovies = listOf(expectedMovieModel, expectedMovieModel2)
             given(repository.fetchData(any())).willReturn(page)
-            val expectedState = MainViewState.Data(expectedMovies, lastPage = 1)
+            val expectedState = MainViewState.Data(expectedMovies,
+                totalPages = 1,
+                totalResults = 2,
+                lastPage = 1)
 
             // when
             val result = interactor.fetchData(1)
