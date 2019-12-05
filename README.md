@@ -15,9 +15,12 @@ Please define Movied DB API v3 key as system variable e.g.
 To make it running just import it to Android Studio v3.5.3 or 
 use ./gradlew assemble command to assemble the apk and install it on a device
 
+![](./art/Screenshot_1.png)
+
 TODO:
 - add progress when loading more pages
-- UI automation & integration tests
+- Use MockWebServer or similar to mock network connection in the 
+UI/instrumentation tests and write more tests
 - add static code analysis tool (deteKt)
 - add favourite film selection
 - more testing...
