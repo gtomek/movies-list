@@ -56,14 +56,9 @@ class MainActivity : AppCompatActivity() {
         Timber.v("Render view state $state")
         when (state) {
             is MainViewState.Loading -> {
-                if (moviesListAdapter.itemCount == 0) {
-                    recycler_items_list.visibility = View.GONE
-                    layout_error_main.visibility = View.GONE
-                    progress_bar.visibility = View.VISIBLE
-                } else {
-                    // TODO add loading item at the end of the list
-                }
-
+                recycler_items_list.visibility = View.GONE
+                layout_error_main.visibility = View.GONE
+                progress_bar.visibility = View.VISIBLE
             }
             is MainViewState.Data -> {
                 recycler_items_list.visibility = View.VISIBLE

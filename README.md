@@ -12,9 +12,12 @@ date.
 Please define Movied DB API v3 key as system variable e.g.
 *export MOVIE_DB_API_V3_KEY='your API key'*
 
-To make it running just import it to Android Studio v3.5.2 or 
+To make it running just import it to Android Studio v3.5.3 or 
 use ./gradlew assemble command to assemble the apk and install it on a device
 
 TODO:
+- add progress when loading more pages
 - UI automation & integration tests
-- pagination support
+- add static code analysis tool (deteKt)
+- add favourite film selection
+- more testing...

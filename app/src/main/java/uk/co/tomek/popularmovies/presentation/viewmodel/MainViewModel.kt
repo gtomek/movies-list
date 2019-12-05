@@ -20,21 +20,19 @@ class MainViewModel(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ViewModel() {
 
-    init {
-        fetchMovies(1)
-    }
-
     private val _mainViewState = MutableLiveData<MainViewState>()
     val mainViewState: LiveData<MainViewState>
         get() {
             return _mainViewState
         }
 
+    init {
+        _mainViewState.value = MainViewState.Loading
+        fetchMovies(1)
+    }
+
     private fun fetchMovies(pageNumber: Int) {
         viewModelScope.launch {
-            if (pageNumber == 1) { // start with loading indicator
-                _mainViewState.value = MainViewState.Loading
-            }
             val lastState = _mainViewState.value
             val newState = withContext(dispatcher) {
                 return@withContext mainInteractor.fetchData(pageNumber)

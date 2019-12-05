@@ -33,6 +33,7 @@
             android:ellipsize="end"
             android:lines="1"
             android:textColor="@color/white"
+            android:textStyle="bold"
             tools:text="The Tile a bit long one to see if it fits in one very long line on that emulator" />
 
         <TextView
@@ -41,6 +42,7 @@
             android:layout_height="wrap_content"
             android:lines="1"
             android:textColor="@color/white"
+            android:textStyle="italic"
             tools:text="Average vote" />
 
         <TextView

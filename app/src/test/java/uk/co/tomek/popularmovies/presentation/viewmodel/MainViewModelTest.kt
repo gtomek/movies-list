@@ -1,10 +1,12 @@
 package uk.co.tomek.popularmovies.presentation.viewmodel
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
+import com.nhaarman.mockitokotlin2.any
 import com.nhaarman.mockitokotlin2.given
 import com.nhaarman.mockitokotlin2.mock
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.test.TestCoroutineDispatcher
 import kotlinx.coroutines.test.runBlockingTest
 import org.junit.Before
@@ -20,7 +22,7 @@ import uk.co.tomek.popularmovies.domain.Interactor
 import uk.co.tomek.popularmovies.presentation.model.MainViewState
 
 /**
- * Basic ViewModel + LiveData test, should be really improved following some ideas from e.g.
+ * Basic ViewModel + LiveData test, it could be improved following some ideas from e.g.
  * https://medium.com/androiddevelopers/unit-testing-livedata-and-other-common-observability-problems-bb477262eb04
  * or it could be done with observerForever as in
  * https://medium.com/exploring-android/android-architecture-components-testing-your-viewmodel-livedata-70177af89c6e
@@ -53,10 +55,7 @@ class MainViewModelTest {
             // given
             val throwable = Exception("An exception")
             val errorState = MainViewState.Error(throwable)
-            given(interactor.fetchData(1)).willReturn(errorState)
-
-            // when
-            //mainViewModel.mainViewState
+            given(interactor.fetchData(any())).willReturn(errorState)
 
             // then
             assertEquals(errorState, mainViewModel.mainViewState.value)
@@ -68,10 +67,7 @@ class MainViewModelTest {
         runBlockingTest {
             // given
             val dataState = MainViewState.Data(mock(), lastPage = 1)
-            given(interactor.fetchData(1)).willReturn(dataState)
-
-            // when
-            //mainViewModel.mainViewState
+            given(interactor.fetchData(any())).willReturn(dataState)
 
             // then
             assertEquals(dataState, mainViewModel.mainViewState.value)
