@@ -2,7 +2,7 @@
 
 Basic Android native application displaying a list of films from themoviedb API
 
-- It uses https://developers.themoviedb.org/3/movies/get-popular-movies URL 
+- It uses <https://developers.themoviedb.org/3/movies/get-popular-movies> URL 
 to get the movies list
 
 - Movie item contains the poster image of each movie in the list, along with the title, voting average (displayed as a percentage) and release
@@ -18,7 +18,7 @@ use ./gradlew assemble command to assemble the apk and install it on a device
 ![](./art/Screenshot_1.png)
 
 TODO:
-- add progress when loading more pages
+- add progress when loading more pages and improve next page loading experience
 - improve error handling, i.e. retry logic and displaying e.g. a snackbar when
 error occurs and some data is already loaded
 - Use MockWebServer or similar to mock network connection in the 
