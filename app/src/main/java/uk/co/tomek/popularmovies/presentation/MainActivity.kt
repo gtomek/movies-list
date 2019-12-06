@@ -47,6 +47,10 @@ class MainActivity : AppCompatActivity() {
             })
         }
 
+        button_error_layout_try_again.setOnClickListener {
+            mainViewModel.retryButtonClicked()
+        }
+
         mainViewModel.mainViewState.observe(this, Observer { viewState ->
             viewState?.let { renderState(it) }
         })

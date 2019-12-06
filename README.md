@@ -19,6 +19,8 @@ use ./gradlew assemble command to assemble the apk and install it on a device
 
 TODO:
 - add progress when loading more pages
+- improve error handling, i.e. retry logic and displaying e.g. a snackbar when
+error occurs and some data is already loaded
 - Use MockWebServer or similar to mock network connection in the 
 UI/instrumentation tests and write more tests
 - add static code analysis tool (deteKt)

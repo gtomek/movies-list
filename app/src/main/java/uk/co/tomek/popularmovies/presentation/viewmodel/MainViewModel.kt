@@ -28,6 +28,10 @@ class MainViewModel(
         }
 
     init {
+        fetchFirstPage()
+    }
+
+    private fun fetchFirstPage() {
         _mainViewState.value = MainViewState.Loading
         fetchMovies(1)
     }
@@ -69,5 +73,9 @@ class MainViewModel(
                 fetchMovies(nextPage)
             }
         }
+    }
+
+    fun retryButtonClicked() {
+        fetchFirstPage()
     }
 }

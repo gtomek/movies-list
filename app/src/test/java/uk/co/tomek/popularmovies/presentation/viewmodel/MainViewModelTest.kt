@@ -88,5 +88,22 @@ class MainViewModelTest {
         }
     }
 
+    @Test
+    fun verifyThatRetryIsWorking() {
+        coroutineScope.runBlockingTest {
+            // given
+            val dataState = MainViewState.Data(mock(), lastPage = 1)
+            given(interactor.fetchData(any())).willReturn(dataState)
+
+            // when
+            mainViewModel.retryButtonClicked()
+
+            // then
+            mainViewModel.mainViewState.captureValues {
+                assertEquals(dataState, mainViewModel.mainViewState.getValueForTest())
+            }
+        }
+    }
+
 
 }
