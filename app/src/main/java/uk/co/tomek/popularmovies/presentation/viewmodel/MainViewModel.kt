@@ -1,5 +1,6 @@
 package uk.co.tomek.popularmovies.presentation.viewmodel
 
+import androidx.annotation.VisibleForTesting
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -31,7 +32,8 @@ class MainViewModel(
         fetchMovies(1)
     }
 
-    private fun fetchMovies(pageNumber: Int) {
+    @VisibleForTesting
+    fun fetchMovies(pageNumber: Int) {
         viewModelScope.launch {
             val lastState = _mainViewState.value
             val newState = withContext(dispatcher) {
