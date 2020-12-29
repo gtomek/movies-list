@@ -3,10 +3,9 @@ package uk.co.tomek.popularmovies.presentation
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import coil.api.load
+import coil.load
 import kotlinx.android.synthetic.main.item_movies_list.view.*
 import timber.log.Timber
 import uk.co.tomek.popularmovies.BuildConfig
